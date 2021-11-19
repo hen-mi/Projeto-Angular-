@@ -1,0 +1,242 @@
+     
+          <div class="logo">
+            <img src="assets/logo-livraria.png" class="imagem-logo">
+            
+        </div>
+        <h1 class="logotexto">Livraria Laplace</h1>
+          <mat-list role="list">
+            <button mat-raised-button routerLink="livros"  class="livros" (click)="livros = !livros"  routerLink="home/livros"  [routerLinkActive]="['is-active']">
+              <p>Livros</p>
+
+            </button>
+
+            <div *ngIf="livros" >
+              <mat-list>
+                
+                <button mat-list-item (click)="ficcie = !ficcie" class="botaocategoria" routerLink="home/livros/ficcao-cientifica" >
+                  Ficção científica
+                  
+                  <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+                </button >
+                <div *ngIf="ficcie"  class="produto">
+                  
+                  <div *ngFor="let produto of produtos">
+                
+                    <button mat-list-item *ngIf="produto.id <= 9" routerLink="home/livros/ficcao-cientifica/{{produto.name}}"><p>{{produto.name}}</p></button> 
+                  
+                </div>
+             
+                </div>
+                <button mat-list-item (click)="fantasia = !fantasia" class="botaocategoria" routerLink="home/livros/fantasia">
+                  Fantasia
+                  <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+                </button >
+                <div *ngIf="fantasia"  class="produto">
+                  <div *ngFor="let produto of produtos">
+                
+                    <button mat-list-item *ngIf="produto.id > 9 && produto.id <= 19" routerLink="home/livros/fantasia/{{produto.name}}" ><p>{{produto.name}}</p></button> 
+                  
+                </div>
+                </div>
+                <button mat-list-item (click)="horror = !horror" class="botaocategoria" routerLink="home/livros/horror">
+                  Horror
+                  <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+                </button >
+                <div *ngIf="horror"  class="produto">
+                  <div *ngFor="let produto of produtos">
+                
+                    <button mat-list-item *ngIf="produto.id > 20 && produto.id <= 28" routerLink="home/livros/horror/{{produto.name}}" ><p>{{produto.name}}</p></button> 
+                  
+                </div>
+                </div>
+                <button mat-list-item (click)="misterio = !misterio" class="botaocategoria" routerLink="home/livros/misterio">
+                 Mistério
+                 <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+                </button >
+                <div *ngIf="misterio"  class="produto">
+                  <div *ngFor="let produto of produtos">
+                
+                    <button mat-list-item *ngIf="produto.id > 28 && produto.id <= 38" routerLink="home/livros/misterio/{{produto.name}}" ><p>{{produto.name}}</p></button> 
+                  
+                </div>
+                </div>
+                <button mat-list-item (click)="comp = !comp" class="botaocategoria" routerLink="home/livros/computacao-e-informatica">
+                  Computação e Informática
+                  <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+                </button >
+                <div *ngIf="comp" class="subbotoes">
+                  <button mat-list-item (click)="program = !program" class="botaocategoria" routerLink="home/livros/computacao-e-informatica/programacao">
+                    Programação
+                    <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+                  </button >
+                  <div *ngIf="program"  class="produto">
+                    <div *ngFor="let produto of produtos">
+                
+                      <button mat-list-item *ngIf="produto.id > 38 && produto.id <= 41" routerLink="home/livros/computacao-e-informatica/programacao/{{produto.name}}" ><p>{{produto.name}}</p></button> 
+                    
+                  </div>
+                  </div>
+                  <button mat-list-item (click)="designgr = !designgr" class="botaocategoria" routerLink="home/livros/computacao-e-informatica/design-grafico">
+                    Design Gráfico
+                    <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+                  </button >
+                  <div *ngIf="designgr"  class="produto">
+
+                    <div *ngFor="let produto of produtos">
+                
+                      <button mat-list-item *ngIf="produto.id > 41 && produto.id <= 44" routerLink="home/livros/computacao-e-informatica/design-grafico/{{produto.name}}" ><p>{{produto.name}}</p></button> 
+                    
+                  </div>   
+
+                  </div>
+                </div>
+                
+                <button mat-list-item (click) = "classicos =!classicos" class="botaocategoria" routerLink="home/livros/classicos">
+                  Clássicos
+                  <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+                </button >
+                <div *ngIf="classicos" class="subbotoes">
+                     <button mat-list-item (click)="litbr = !litbr" class="botaocategoria" routerLink="home/livros/classicos/literatura-brasileira">
+                    Literatura Brasileira
+                    <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+                  </button >
+                  <div *ngIf="litbr"  class="produto">
+                    <div *ngFor="let produto of produtos">
+                
+                      <button mat-list-item *ngIf="produto.id > 44 && produto.id <= 53" routerLink="home/livros/classicos/literatura-brasileira/{{produto.name}}" ><p>{{produto.name}}</p></button> 
+                    
+                  </div>
+                  </div>
+                  <button mat-list-item (click)="litbrita = !litbrita" class="botaocategoria" routerLink="home/livros/classicos/literatura-britanica">
+                    Literatura Britânica
+                    <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+                  </button >
+                  <div *ngIf="litbrita"  class="produto">
+                    <div *ngFor="let produto of produtos">
+                
+                      <button mat-list-item *ngIf="produto.id > 53 && produto.id <= 61" routerLink="home/livros/classicos/literatura-britanica/{{produto.name}}" ><p>{{produto.name}}</p></button> 
+                    
+                  </div>
+                  </div>
+                  <button mat-list-item (click)="litru = !litru" class="botaocategoria" routerLink="home/livros/classicos/literatura-russa">
+                    Literatura Russa
+                    <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+                  </button >
+                  <div *ngIf="litru"  class="produto">
+                    <div *ngFor="let produto of produtos">
+                
+                      <button mat-list-item *ngIf="produto.id > 61 && produto.id <= 70" routerLink="home/livros/classicos/literatura-russa/{{produto.name}}" ><p>{{produto.name}}</p></button> 
+                    
+                  </div>
+                  </div>
+                  <button mat-list-item (click)="litas = !litas" class="botaocategoria" routerLink="home/livros/classicos/literatura-asiatica">
+                    Literatura Asiática
+                    <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+                  </button >
+                  <div *ngIf="litas"  class="produto">
+                    <div *ngFor="let produto of produtos">
+                
+                      <button mat-list-item *ngIf="produto.id > 70 && produto.id <= 78" routerLink="home/livros/classicos/literatura-asiatica/{{produto.name}}" ><p>{{produto.name}}</p></button> 
+                    
+                  </div>
+                  </div>
+                
+                </div>
+              </mat-list >
+            </div>
+          </mat-list>
+          <mat-list role="list">
+            <button (click)="hq = !hq" mat-raised-button class="livros" routerLink="home/historia-em-quadrinhos">
+              História em Quadrinhos
+            </button>
+            <div *ngIf="hq">
+              <button mat-list-item (click)="dc = !dc" class="botaocategoria" routerLink="home/historia-em-quadrinhos/DC">
+                DC
+                <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+              </button >
+              <div class="produto" *ngIf="dc">
+                <div *ngFor="let produto of produtos">
+                
+                  <button mat-list-item *ngIf="produto.id > 78 && produto.id <= 81" routerLink="home/historia-em-quadrinhos/DC/{{produto.name}}" ><p>{{produto.name}}</p></button> 
+                
+              </div>
+              </div>
+              <div class="subbotoes">
+                <button mat-list-item (click)="vertigo = !vertigo" class="botaocategoria" *ngIf="dc" routerLink="home/historia-em-quadrinhos/DC/selo-vertigo">
+                  Selo Vertigo
+                  <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+                </button >
+                <div class="produto" *ngIf="vertigo && dc">
+                  <div *ngFor="let produto of produtos">
+                
+                    <button mat-list-item *ngIf="produto.id > 81 && produto.id <= 85" routerLink="home/historia-em-quadrinhos/DC/selo-vertigo/{{produto.name}}" ><p>{{produto.name}}</p></button> 
+                  
+                </div>
+                </div>
+                           
+              </div>
+              <button mat-list-item (click)="marvel = !marvel" class="botaocategoria" routerLink="home/historia-em-quadrinhos/marvel">
+                Marvel
+                <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+              </button >
+              <div class="produto" *ngIf="marvel">
+                <div *ngFor="let produto of produtos">
+                
+                  <button mat-list-item *ngIf="produto.id > 85 && produto.id <= 88" routerLink="home/historia-em-quadrinhos/marvel/{{produto.name}}" ><p>{{produto.name}}</p></button> 
+                
+              </div>
+              </div>
+              <button mat-list-item (click)="gnovel = !gnovel" class="botaocategoria" routerLink="home/historia-em-quadrinhos/graphic-novels">
+                Graphic Novels
+                <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+              </button >
+              <div class="produto" *ngIf="gnovel">
+                <div *ngFor="let produto of produtos">
+                
+                  <button mat-list-item *ngIf="produto.id > 88 && produto.id <= 92" routerLink="home/historia-em-quadrinhos/graphic-novels/{{produto.name}}" ><p>{{produto.name}}</p></button> 
+                
+              </div>
+             
+              </div>
+            </div>
+          </mat-list>
+          <mat-list role="list">
+            <button (click)="manga = !manga" mat-raised-button class="livros" routerLink="home/mangas">
+              Mangás
+            </button>
+            <div *ngIf="manga">
+              <button mat-list-item (click)="seinen = !seinen" class="botaocategoria" routerLink="home/mangas/seinen">
+                Seinen
+                <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+              </button >
+              <div class="produto" *ngIf="seinen">
+                <div *ngFor="let produto of produtos">
+                
+                  <button mat-list-item *ngIf="produto.id > 92 && produto.id <= 98" routerLink="home/mangas/seinen/{{produto.name}}" ><p>{{produto.name}}</p></button> 
+                
+              </div>
+              </div>
+              <button mat-list-item (click)="shounen = !shounen" class="botaocategoria" routerLink="home/mangas/shounen">
+                Shounen
+                <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+              </button >
+              <div class="produto" *ngIf="shounen">
+                <div *ngFor="let produto of produtos">
+                
+                  <button mat-list-item *ngIf="produto.id > 99 && produto.id <= 101" routerLink="home/mangas/shounen/{{produto.name}}" ><p>{{produto.name}}</p></button> 
+                
+              </div>
+              </div>
+              <button mat-list-item (click)="josei = !josei" class="botaocategoria" routerLink="home/mangas/josei">
+                Josei
+                <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+              </button >
+              <div class="produto" *ngIf="josei">
+                <div *ngFor="let produto of produtos">
+                
+                  <button mat-list-item *ngIf="produto.id > 101 && produto.id <= 103" routerLink="home/mangas/josei/{{produto.name}}" ><p>{{produto.name}}</p></button> 
+                
+              </div>
+              </div>
+            </div>
+          </mat-list>
